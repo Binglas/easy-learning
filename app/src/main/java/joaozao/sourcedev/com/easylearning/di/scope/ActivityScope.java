@@ -1,13 +1,16 @@
-package joaozao.sourcedev.com.easylearning.di.qualifiers;
+package joaozao.sourcedev.com.easylearning.di.scope;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import javax.inject.Qualifier;
+import javax.inject.Scope;
 
-@Qualifier
+@Scope
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-public @interface DefaultOkHttpClient {
+public @interface ActivityScope {
+
+    // Default empty interface
+
 }

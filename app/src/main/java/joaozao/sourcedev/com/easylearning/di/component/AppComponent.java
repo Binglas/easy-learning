@@ -11,6 +11,7 @@ import dagger.android.DaggerApplication;
 import dagger.android.support.AndroidSupportInjectionModule;
 import joaozao.sourcedev.com.easylearning.ELApplication;
 import joaozao.sourcedev.com.easylearning.di.module.ApplicationModule;
+import joaozao.sourcedev.com.easylearning.di.module.NetworkModule;
 
 /**
  * This is a Dagger component. Refer to {@link ELApplication} for the list of Dagger components
@@ -25,7 +26,8 @@ import joaozao.sourcedev.com.easylearning.di.module.ApplicationModule;
  */
 @Singleton
 @Component(modules = {ApplicationModule.class,
-        AndroidSupportInjectionModule.class})
+        AndroidSupportInjectionModule.class,
+        NetworkModule.class})
 public interface AppComponent extends AndroidInjector<DaggerApplication> {
 
     void inject(ELApplication application);
