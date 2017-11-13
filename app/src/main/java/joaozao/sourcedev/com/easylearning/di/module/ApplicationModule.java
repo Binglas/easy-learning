@@ -1,5 +1,9 @@
 package joaozao.sourcedev.com.easylearning.di.module;
 
+import android.app.Application;
+import android.content.Context;
+
+import dagger.Binds;
 import dagger.Module;
 import joaozao.sourcedev.com.easylearning.di.component.AppComponent;
 
@@ -14,7 +18,11 @@ import joaozao.sourcedev.com.easylearning.di.component.AppComponent;
 @Module
 public abstract class ApplicationModule {
 
-    /*//expose Application as an injectable context
+    private ApplicationModule() {
+        // Disallow instantiation with empty private constructor
+    }
+
+    //expose Application as an injectable context
     @Binds
-    abstract Context bindContext(Application application);*/
+    abstract Context bindContext(Application application);
 }
