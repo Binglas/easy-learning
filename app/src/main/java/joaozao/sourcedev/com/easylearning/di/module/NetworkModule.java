@@ -48,7 +48,9 @@ public class NetworkModule {
     @FragmentScope
     @InductionsCall
     static Call providesInductionsCall(@DefaultOkHttpClient OkHttpClient okHttpClient) {
-        Request inductionsRequest = new Request.Builder().url("URL GOES HERE").build();
+        Request inductionsRequest = new Request.Builder().url(
+                "https://drive.google.com/uc?" +
+                        "authuser=0&id=1sMSltMnb1z_QhbZmr_conPAS_xzusAXN&export=download").build();
 
         return okHttpClient.newCall(inductionsRequest);
     }
