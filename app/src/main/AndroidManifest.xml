@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="joaozao.sourcedev.com.easylearning">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".ELApplication"
         android:allowBackup="true"

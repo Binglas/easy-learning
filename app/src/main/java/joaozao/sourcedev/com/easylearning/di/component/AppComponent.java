@@ -10,6 +10,7 @@ import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication;
 import dagger.android.support.AndroidSupportInjectionModule;
 import joaozao.sourcedev.com.easylearning.ELApplication;
+import joaozao.sourcedev.com.easylearning.di.module.ActivityBindingModule;
 import joaozao.sourcedev.com.easylearning.di.module.ApplicationModule;
 import joaozao.sourcedev.com.easylearning.di.module.NetworkModule;
 
@@ -27,10 +28,14 @@ import joaozao.sourcedev.com.easylearning.di.module.NetworkModule;
 @Singleton
 @Component(modules = {ApplicationModule.class,
         AndroidSupportInjectionModule.class,
-        NetworkModule.class})
+        NetworkModule.class,
+        ActivityBindingModule.class})
 public interface AppComponent extends AndroidInjector<DaggerApplication> {
 
     void inject(ELApplication application);
+
+    @Override
+    void inject(DaggerApplication instance);
 
     // Gives us syntactic sugar. we can then do DaggerAppComponent.builder().application(this).build().inject(this);
     // never having to instantiate any modules or say which module we are passing the application to.

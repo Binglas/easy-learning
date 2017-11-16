@@ -41,6 +41,7 @@ dependencies {
     // Network dependencies
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
     implementation "com.squareup.okhttp3:okhttp:$rootProject.retrofitVersion"
+    implementation "com.squareup.moshi:moshi:$rootProject.moshiVersion"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleCompatible

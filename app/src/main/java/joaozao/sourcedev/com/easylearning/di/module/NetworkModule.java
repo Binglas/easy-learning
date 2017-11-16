@@ -9,12 +9,8 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import joaozao.sourcedev.com.easylearning.di.qualifier.DefaultOkHttpClient;
-import joaozao.sourcedev.com.easylearning.di.qualifier.InductionsCall;
-import joaozao.sourcedev.com.easylearning.di.scope.FragmentScope;
 import okhttp3.Cache;
-import okhttp3.Call;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 
 @Module
 public class NetworkModule {
@@ -42,17 +38,6 @@ public class NetworkModule {
                 .readTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .build();
-    }
-
-    @Provides
-    @FragmentScope
-    @InductionsCall
-    static Call providesInductionsCall(@DefaultOkHttpClient OkHttpClient okHttpClient) {
-        Request inductionsRequest = new Request.Builder().url(
-                "https://drive.google.com/uc?" +
-                        "authuser=0&id=1sMSltMnb1z_QhbZmr_conPAS_xzusAXN&export=download").build();
-
-        return okHttpClient.newCall(inductionsRequest);
     }
 
 }
