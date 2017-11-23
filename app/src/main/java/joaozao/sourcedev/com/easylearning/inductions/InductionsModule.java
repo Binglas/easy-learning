@@ -3,8 +3,10 @@ package joaozao.sourcedev.com.easylearning.inductions;
 import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
+import dagger.android.ContributesAndroidInjector;
 import joaozao.sourcedev.com.easylearning.di.qualifier.InductionsRequest;
 import joaozao.sourcedev.com.easylearning.di.scope.ActivityScope;
+import joaozao.sourcedev.com.easylearning.di.scope.FragmentScope;
 import okhttp3.Request;
 
 /**
@@ -13,6 +15,10 @@ import okhttp3.Request;
  */
 @Module
 public abstract class InductionsModule {
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    abstract InductionsFragment inductionsFragment();
 
     @ActivityScope
     @Binds

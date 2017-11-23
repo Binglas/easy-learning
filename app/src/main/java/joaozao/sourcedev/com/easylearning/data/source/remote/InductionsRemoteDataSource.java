@@ -57,6 +57,7 @@ public class InductionsRemoteDataSource implements InductionsDataSource{
 
                 try {
                     InductionsResponse mInductionsResponse = mInductionsResponseJsonAdapter.fromJson(response.body().string());
+                    //callback.onInductionsLoaded(Lists.newArrayList(TASKS_SERVICE_DATA.values()));
                     Log.d("_DEBUG", "Induction response: " + mInductionsResponse.toString());
                 } catch (IOException e) {
                     e.printStackTrace();

@@ -39,6 +39,7 @@ public class InductionsPresenter implements InductionsContract.Presenter{
     @Override
     public void takeView(InductionsContract.View view) {
         this.mInductionsView = view;
+        loadInductions();
     }
 
     @Override
