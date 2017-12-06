@@ -22,12 +22,12 @@ public class InductionsRepository implements InductionsDataSource{
         mInductionsRemoteDataSource.getInductions(new LoadInductionsCallback() {
             @Override
             public void onInductionsLoaded(List<Induction> inductions) {
-
+                callback.onInductionsLoaded(inductions);
             }
 
             @Override
             public void onDataNotAvailable() {
-
+                callback.onDataNotAvailable();
             }
         });
     }

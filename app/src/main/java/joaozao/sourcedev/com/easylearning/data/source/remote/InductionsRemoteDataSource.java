@@ -20,15 +20,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-/**
- * Created by joaozao on 15/11/2017.
- */
-
 public class InductionsRemoteDataSource implements InductionsDataSource{
 
     private final JsonAdapter<InductionsResponse> mInductionsResponseJsonAdapter;
     private OkHttpClient mOkHttpClient;
     private Request mRequest;
+    private InductionsResponse mInductionsResponse;
 
     @Inject
     public InductionsRemoteDataSource(@DefaultOkHttpClient OkHttpClient okHttpClient,
@@ -56,12 +53,16 @@ public class InductionsRemoteDataSource implements InductionsDataSource{
                 }
 
                 try {
-                    InductionsResponse mInductionsResponse = mInductionsResponseJsonAdapter.fromJson(response.body().string());
-                    //callback.onInductionsLoaded(Lists.newArrayList(TASKS_SERVICE_DATA.values()));
+                    mInductionsResponse = mInductionsResponseJsonAdapter.fromJson(response.body().string());
                     Log.d("_DEBUG", "Induction response: " + mInductionsResponse.toString());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }finally {
+                    if (mInductionsResponse != null) {
+                        callback.onInductionsLoaded(mInductionsResponse.getInductionsList());
+                    } else {
+                        callback.onDataNotAvailable();
+                    }
                     response.body().close();
                 }
 

@@ -18,7 +18,7 @@ public final class InductionsResponse {
     @Json(name = "inductions")
     private List<Induction> mInductionsList;
 
-    public List<Induction> getmInductionsList() {
+    public List<Induction> getInductionsList() {
         return mInductionsList;
     }
 }

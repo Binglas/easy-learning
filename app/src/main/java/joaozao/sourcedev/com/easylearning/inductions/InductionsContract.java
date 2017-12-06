@@ -19,6 +19,8 @@ public interface InductionsContract {
 
         void showNoInductions();
 
+        boolean isActive();
+
     }
 
     interface Presenter extends BasePresenter<View> {

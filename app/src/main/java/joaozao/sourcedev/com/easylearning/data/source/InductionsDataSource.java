@@ -10,19 +10,19 @@ public interface InductionsDataSource {
 
     interface LoadInductionsCallback {
 
-        void onInductionsLoaded(List<Induction> tasks);
+        void onInductionsLoaded(List<Induction> inductions);
 
         void onDataNotAvailable();
     }
 
     interface GetInductionCallback {
 
-        void onInductionLoaded(Induction task);
+        void onInductionLoaded(Induction induction);
 
         void onDataNotAvailable();
     }
 
     void getInductions(@NonNull LoadInductionsCallback callback);
 
-    void getInduction(@NonNull String taskId, @NonNull GetInductionCallback callback);
+    void getInduction(@NonNull String inductionId, @NonNull GetInductionCallback callback);
 }

@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -52,18 +53,24 @@ public class InductionsFragment extends DaggerFragment implements InductionsCont
     }
 
     @Override
+    public boolean isActive() {
+        return isAdded();
+    }
+
+    @Override
     public void setLoadingIndicator(boolean active) {
 
     }
 
     @Override
-    public void showInductions(List<Induction> tasks) {
-
+    public void showInductions(List<Induction> inductions) {
+        getActivity().runOnUiThread(() ->
+                Toast.makeText(getActivity(), "Show inductions: "+inductions.toString(), Toast.LENGTH_SHORT).show());
     }
 
     @Override
     public void showNoInductions() {
-
+        Toast.makeText(getContext(), "No inductions to show!", Toast.LENGTH_SHORT).show();
     }
 
 
