@@ -1,4 +1,5 @@
 # easy-learning
+[![Build Status](https://travis-ci.org/Binglas/easy-learning.svg?branch=mvp-di-base)](https://travis-ci.org/Binglas/easy-learning)
 
 ### Next steps
 
