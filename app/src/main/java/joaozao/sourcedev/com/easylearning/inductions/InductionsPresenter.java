@@ -23,6 +23,11 @@ public class InductionsPresenter implements InductionsContract.Presenter{
 
     @Override
     public void loadInductions() {
+
+        if (mInductionsView != null) {
+            mInductionsView.setLoadingIndicator(true);
+        }
+
         mInductionsRepository.getInductions(new InductionsDataSource.LoadInductionsCallback() {
             @Override
             public void onInductionsLoaded(List<Induction> inductions) {
@@ -33,6 +38,8 @@ public class InductionsPresenter implements InductionsContract.Presenter{
                 }
 
                 processInductions(inductions);
+
+                mInductionsView.setLoadingIndicator(false);
             }
 
             @Override

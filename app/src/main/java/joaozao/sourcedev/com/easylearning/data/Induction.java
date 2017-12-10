@@ -7,6 +7,38 @@ import com.squareup.moshi.Json;
 @Keep
 public class Induction {
 
+    public String getmInductionName() {
+        return mInductionName;
+    }
+
+    public void setmInductionName(String mInductionName) {
+        this.mInductionName = mInductionName;
+    }
+
+    public String getmInductionDescription() {
+        return mInductionDescription;
+    }
+
+    public void setmInductionDescription(String mInductionDescription) {
+        this.mInductionDescription = mInductionDescription;
+    }
+
+    public String getmInductionDate() {
+        return mInductionDate;
+    }
+
+    public void setmInductionDate(String mInductionDate) {
+        this.mInductionDate = mInductionDate;
+    }
+
+    public String getmInductionTecher() {
+        return mInductionTecher;
+    }
+
+    public void setmInductionTecher(String mInductionTecher) {
+        this.mInductionTecher = mInductionTecher;
+    }
+
     @Json(name = "name")
     private String mInductionName;
 

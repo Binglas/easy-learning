@@ -9,18 +9,18 @@ import dagger.Component;
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication;
 import dagger.android.support.AndroidSupportInjectionModule;
-import joaozao.sourcedev.com.easylearning.ELApplication;
+import joaozao.sourcedev.com.easylearning.EasyLearningApplication;
 import joaozao.sourcedev.com.easylearning.di.module.ActivityBindingModule;
 import joaozao.sourcedev.com.easylearning.di.module.ApplicationModule;
 import joaozao.sourcedev.com.easylearning.di.module.NetworkModule;
 
 /**
- * This is a Dagger component. Refer to {@link ELApplication} for the list of Dagger components
+ * This is a Dagger component. Refer to {@link EasyLearningApplication} for the list of Dagger components
  * used in this application.
  * <p>
  * Even though Dagger allows annotating a {@link Component} as a singleton, the code
  * itself must ensure only one instance of the class is created. This is done in {@link
- * ELApplication}.
+ * EasyLearningApplication}.
  * //{@link AndroidSupportInjectionModule}
  * // is the module from Dagger.Android that helps with the generation
  * // and location of subcomponents.
@@ -32,7 +32,7 @@ import joaozao.sourcedev.com.easylearning.di.module.NetworkModule;
         ActivityBindingModule.class})
 public interface AppComponent extends AndroidInjector<DaggerApplication> {
 
-    void inject(ELApplication application);
+    void inject(EasyLearningApplication application);
 
     @Override
     void inject(DaggerApplication instance);
