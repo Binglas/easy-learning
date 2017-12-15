@@ -44,9 +44,12 @@ dependencies {
     implementation "com.google.dagger:dagger-android:$rootProject.daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
 
-    // ButterKnife
+    // Bindings
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
     implementation "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
+
+    provided "com.google.auto.value:auto-value:$rootProject.googleAutoValueVersion"
+    annotationProcessor "com.google.auto.value:auto-value:$rootProject.googleAutoValueVersion"
 
     implementation "com.squareup.picasso:picasso:$rootProject.picassoVersion"
 
