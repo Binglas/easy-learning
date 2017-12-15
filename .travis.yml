@@ -8,6 +8,16 @@ android:
                 - android-27
                 - extra-android-m2repository
                 - extra-google-android-support
+
+        install:
+                - echo y | android update sdk -u -a -t tools
+                - echo y | android update sdk -u -a -t platform-tools
+                - echo y | android update sdk -u -a -t build-tools-27.0.2
+                - echo y | android update sdk -u -a -t android-27
+                - echo y | android update sdk -u -a -t extra-google-m2repository
+                - echo y | android update sdk -u -a -t extra-android-m2repository
+
+
 script:
         - ./gradlew build
 before_install:
