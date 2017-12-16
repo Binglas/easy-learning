@@ -63,7 +63,7 @@ public class InductionsAdapter extends RecyclerView.Adapter<InductionsAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Induction induction = inductionList.get(position);
-        holder.title.setText(induction.getmInductionName());
+        holder.title.setText(induction.name());
         Picasso.with(context).load(imageUrl).placeholder(R.drawable.ic_launcher_background).into(holder.thumbnail);
     }
 

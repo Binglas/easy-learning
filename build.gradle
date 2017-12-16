@@ -25,7 +25,8 @@ ext {
     okhttpVersion = '3.9.1'
     butterknifeVersion = '8.8.1'
     picassoVersion = '2.5.2'
-    googleAutoValueVersion = '1.3'
+    googleAutoValueVersion = '1.4'
+    autoValueMoshiVersion = '0.3.0'
 }
 
 allprojects {

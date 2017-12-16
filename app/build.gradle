@@ -48,8 +48,10 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
     implementation "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
 
+    // Google Auto Value
     provided "com.google.auto.value:auto-value:$rootProject.googleAutoValueVersion"
     annotationProcessor "com.google.auto.value:auto-value:$rootProject.googleAutoValueVersion"
+    annotationProcessor "com.ryanharter.auto.value:auto-value-moshi:$rootProject.autoValueMoshiVersion"
 
     implementation "com.squareup.picasso:picasso:$rootProject.picassoVersion"
 

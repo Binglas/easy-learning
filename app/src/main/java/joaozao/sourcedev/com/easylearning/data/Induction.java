@@ -2,62 +2,28 @@ package joaozao.sourcedev.com.easylearning.data;
 
 import android.support.annotation.Keep;
 
-import com.squareup.moshi.Json;
+import com.google.auto.value.AutoValue;
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
 
 @Keep
-public class Induction {
+@AutoValue
+public abstract class Induction {
 
-    public String getmInductionName() {
-        return mInductionName;
+    public abstract String name();
+
+    abstract String description();
+
+    abstract String date();
+
+    abstract String teacher();
+
+    public static Induction create(String name, String description, String date, String teacher) {
+        return new AutoValue_Induction(name, description, date, teacher);
     }
 
-    public void setmInductionName(String mInductionName) {
-        this.mInductionName = mInductionName;
+    public static JsonAdapter<Induction> jsonAdapter(Moshi moshi) {
+        return new AutoValue_Induction.MoshiJsonAdapter(moshi);
     }
 
-    public String getmInductionDescription() {
-        return mInductionDescription;
-    }
-
-    public void setmInductionDescription(String mInductionDescription) {
-        this.mInductionDescription = mInductionDescription;
-    }
-
-    public String getmInductionDate() {
-        return mInductionDate;
-    }
-
-    public void setmInductionDate(String mInductionDate) {
-        this.mInductionDate = mInductionDate;
-    }
-
-    public String getmInductionTecher() {
-        return mInductionTecher;
-    }
-
-    public void setmInductionTecher(String mInductionTecher) {
-        this.mInductionTecher = mInductionTecher;
-    }
-
-    @Json(name = "name")
-    private String mInductionName;
-
-    @Json(name = "description")
-    private String mInductionDescription;
-
-    @Json(name = "date")
-    private String mInductionDate;
-
-    @Json(name = "teacher")
-    private String mInductionTecher;
-
-    @Override
-    public String toString() {
-        return "Induction{" +
-                "mInductionName='" + mInductionName + '\'' +
-                ", mInductionDescription='" + mInductionDescription + '\'' +
-                ", mInductionDate='" + mInductionDate + '\'' +
-                ", mInductionTecher='" + mInductionTecher + '\'' +
-                '}';
-    }
 }

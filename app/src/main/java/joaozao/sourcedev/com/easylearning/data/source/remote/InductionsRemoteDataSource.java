@@ -3,6 +3,7 @@ package joaozao.sourcedev.com.easylearning.data.source.remote;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.ryanharter.auto.value.moshi.AutoValueMoshiAdapterFactory;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 
@@ -34,6 +35,7 @@ public class InductionsRemoteDataSource implements InductionsDataSource{
         mRequest = request;
 
         mInductionsResponseJsonAdapter = new Moshi.Builder()
+                .add(new AutoValueMoshiAdapterFactory())
                 .build()
                 .adapter(InductionsResponse.class);
     }
@@ -59,7 +61,7 @@ public class InductionsRemoteDataSource implements InductionsDataSource{
                     e.printStackTrace();
                 }finally {
                     if (mInductionsResponse != null) {
-                        callback.onInductionsLoaded(mInductionsResponse.getInductionsList());
+                        callback.onInductionsLoaded(mInductionsResponse.mInductionsList());
                     } else {
                         callback.onDataNotAvailable();
                     }
