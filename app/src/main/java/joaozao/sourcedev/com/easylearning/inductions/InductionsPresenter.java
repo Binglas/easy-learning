@@ -1,30 +1,54 @@
 package joaozao.sourcedev.com.easylearning.inductions;
 
 
+import android.support.annotation.NonNull;
+
 import java.util.List;
 
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 
 import joaozao.sourcedev.com.easylearning.data.Induction;
-import joaozao.sourcedev.com.easylearning.data.source.InductionsDataSource;
 import joaozao.sourcedev.com.easylearning.data.source.InductionsRepository;
+import joaozao.sourcedev.com.easylearning.di.qualifier.TargetProcessRetrofit;
+import joaozao.sourcedev.com.easylearning.inductions.service.UserStoriesService;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class InductionsPresenter implements InductionsContract.Presenter{
 
     @Nullable
     private InductionsContract.View mInductionsView;
     private InductionsRepository mInductionsRepository;
+    private Retrofit retrofit;
 
     @Inject
-    InductionsPresenter(InductionsRepository inductionsRepository) {
+    InductionsPresenter(InductionsRepository inductionsRepository, @TargetProcessRetrofit Retrofit retrofit) {
         mInductionsRepository = inductionsRepository;
+        this.retrofit = retrofit;
     }
 
     @Override
     public void loadInductions() {
 
-        if (mInductionsView != null) {
+        UserStoriesService userStoriesService = retrofit.create(UserStoriesService.class);
+
+        userStoriesService.getUserStories().enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
+                response.body();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+
+        /*if (mInductionsView != null) {
             mInductionsView.setLoadingIndicator(true);
         }
 
@@ -46,7 +70,7 @@ public class InductionsPresenter implements InductionsContract.Presenter{
             public void onDataNotAvailable() {
                 processEmptyInductions();
             }
-        });
+        });*/
     }
 
     private void processInductions(List<Induction> inductions) {
